@@ -11,7 +11,6 @@ from FinnhubConnector import FinnhubConnector
 connector = FinnhubConnector(api_key='YOUR_FINNHUB_API_KEY')
 TOKEN = 'YOUR_TELEGRAM_BOT_TOKEN'
 
-
 # This function gives all the instructions on how to work with the bot. In order to call it run the code and send the bot the below message:
 # /hello
 async def hello(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -53,7 +52,6 @@ DC FRC
 WC ST
 MC GOOGL''')
 
-
 # Create a few functions that will later be called from our main bot function. These functions make Finnhub API calls and
 # return info in the most comfortable text format for the Telegram App cellphone view. Function below gets the current quote
 # of a desired stock.
@@ -63,7 +61,6 @@ def current_quote(symbol):
 
 #Create a list of all the stocks to be used in our random.choice function if we'd like to choose a random symbol.
 stocks = connector.get_north_american_stocks()['Symbol']
-
 
 # Returns the results of a search query when we are trying to look up a stock or a company.
 def look_up(query):
