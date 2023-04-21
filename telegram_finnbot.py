@@ -6,10 +6,12 @@ from dateutil.relativedelta import relativedelta
 import random
 
 # import FinnhubConnector and establish the the object. Then enter your token (telegram bot API key).
-from FinnhubConnector import FinnhubConnector
+from finnhub_connector import FinnhubConnector
 
-connector = FinnhubConnector(api_key='YOUR_FINNHUB_API_KEY')
-TOKEN = 'YOUR_TELEGRAM_BOT_TOKEN'
+api_key = input('Paste your Finnhub API key: ')
+connector = FinnhubConnector(api_key=api_key)
+
+TOKEN = input('Paste your Telegram Bot Token: ')
 
 # This function gives all the instructions on how to work with the bot. In order to call it run the code and send the bot the below message:
 # /hello
@@ -255,4 +257,9 @@ app.add_handler(CommandHandler("hello", hello))
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, main))
 
 # Continuously run the app
+print('')
+print('Your app is now running! Go to the chat and send the bot a message: /hello \nThis will give you a list'
+      ' of available commands. Follow the instructions to get information for any stocks you want. Enjoy!')
 app.run_polling()
+print('')
+print('##### Connection Closed #####')
